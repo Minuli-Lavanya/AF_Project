@@ -26,7 +26,10 @@ connection.once("open", () => {
 })
 
 const researchTopicRouter = require("./routes/researchTopic");
-app.use("/researchTopic", researchTopicRouter)
+app.use("/researchtopic", researchTopicRouter)
+
+const supervisorDetailRouter = require("./routes/supervisorDetail");
+app.use("/supervisordetail", supervisorDetailRouter)
 
 
 
