@@ -4,12 +4,47 @@ const Schema = mongoose.Schema;
 
 const researchTopicSchema = new Schema({
 
+    researchTitle : {
+        type : String,
+        required : true
+    },
+
+    research_category : {
+        type : String,
+        required : false
+    },
+    
+    research_area : {
+        type : String,
+        required : false
+    },
+
+    supervisor_name : {
+        type :String,
+        required : true
+    },
+
+    co_supervisor_name : {
+        type :String,
+        required : true
+    },
+    
     groupId : {
         type : String,
         required : true
     },
 
     member1 : {
+        type : String,
+        required : true
+    },
+
+    leader_email : {
+        type : String,
+        required : true
+    },
+
+    leader_phoneNumber : {
         type : String,
         required : true
     },
@@ -26,33 +61,10 @@ const researchTopicSchema = new Schema({
 
     member4 : {
         type : String,
-        required : true
-    },
-
-    email : {
-        type : String,
-        required : true
-    },
-
-    phoneNumber : {
-        type : String,
-        required : true
-    },
-
-    researchTitle : {
-        type : String,
-        required : true
-    },
-
-    desription : {
-        type : String,
-        required : true
-    },
-
-    status : {
-        type : String,
         required : false
-    }
+    },
+
+   
 
 })
 
