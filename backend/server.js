@@ -31,6 +31,9 @@ app.use("/researchtopic", researchTopicRouter)
 const supervisorDetailRouter = require("./routes/supervisorDetail");
 app.use("/supervisordetail", supervisorDetailRouter)
 
+const GroupRegisterRoutes = require("./routes/GroupRegisterRoutes");
+app.use("/groupdetail", GroupRegisterRoutes)
+
 
 
 app.listen(PORT, () => {
