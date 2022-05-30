@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const groupRegisterSchema = new Schema({
+const GroupRegisterSchema = new Schema({
 
     member1Name : {
         type : String,
@@ -20,8 +20,7 @@ const groupRegisterSchema = new Schema({
     },
 
     member4Name : {
-        type : String,
-        required : true
+        type : String
     },
 
     member1email : {
@@ -40,8 +39,7 @@ const groupRegisterSchema = new Schema({
     },
 
     member4email : {
-        type : String,
-        required : true
+        type : String
     },
 
     member1phoneNumber : {
@@ -60,13 +58,11 @@ const groupRegisterSchema = new Schema({
     },
 
     member4phoneNumber : {
-        type : String,
-        required : true
+        type : String
     },
 
     member1ITnumber : {
-        type : String,
-        required : true
+        type : String
     },
 
     member2ITnumber : {
@@ -80,12 +76,12 @@ const groupRegisterSchema = new Schema({
     },
 
     member4ITnumber : {
-        type : String,
-        required : true
+        type : String
+        
     },
     
 })
 
-const groupRegister = mongoose.model("groupRegister", groupRegisterSchema);
+const GroupRegister = mongoose.model("GroupRegister", GroupRegisterSchema);
 
-module.exports = groupRegister;
+module.exports = GroupRegister;
