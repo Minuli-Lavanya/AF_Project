@@ -11,7 +11,7 @@ const AddSupervisorRequest=()=>{
     const [GroupLeaderITnumber, setGroupLeaderITnumber] = useState("");
     const [sdate, setsdate] = useState("");
 
-    
+
      function sendData(e){
        e.preventDefault();
         
@@ -104,7 +104,7 @@ const AddSupervisorRequest=()=>{
 
                         <div className="form-group">
                             <label htmlFor="name">Date</label>
-                            <input type="text" className="form-control" id="sdate" required
+                            <input type="date" className="form-control" id="sdate" required
                                 onChange = {(e) => {
                                     setsdate(e.target.value);
                                 }}
