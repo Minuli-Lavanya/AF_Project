@@ -31,7 +31,11 @@ app.use("/researchtopic", researchTopicRouter)
 const supervisorDetailRouter = require("./routes/supervisorDetail");
 app.use("/supervisordetail", supervisorDetailRouter)
 
+const GroupRegisterRoutes = require("./routes/GroupRegisterRoutes");
+app.use("/groupdetail", GroupRegisterRoutes)
 
+const requestSupervisorRoutes = require("./routes/requestSupervisorRoutes");
+app.use("/requestSupervisor", requestSupervisorRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server is up and running at port ${PORT}`)
