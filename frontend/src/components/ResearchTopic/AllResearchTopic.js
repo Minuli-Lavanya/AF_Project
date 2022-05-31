@@ -27,7 +27,7 @@ export default class ViewAllResearchTopic extends Component {
         axios.delete(`http://localhost:8070/researchtopic/delete/${id}`).then((res) =>{
             
                 window.confirm("Do you need to delete! ?");
-
+                const navigate = useNavigate();
                 navigate('/ViewAllResearchTopic');
                 
         })
@@ -43,7 +43,10 @@ export default class ViewAllResearchTopic extends Component {
     }
 
     updateResearchTopic(id){
-        this.props.history.push(`/editHotels/${id}`);
+
+        const navigate = useNavigate();
+
+        navigate(`/EditResearchTopic/${id}`);
        
     }
 
@@ -103,8 +106,13 @@ export default class ViewAllResearchTopic extends Component {
                                      <td>{p.member4}</td>
                                         
                                         <td>
-                                            <button  onClick={(e)=>{this.updateResearchTopic(p.id)}}>Update</button>
+                                            {/* <button  onClick={(e)=>{this.updateResearchTopic(p.id)}}>Update</button> */}
                                             
+                                            {/*  */}
+                                            <a className="btn btn-warning" id="btn1" href={`/EditResearchTopic/${p._id}`}>
+                                                <i class="fas fa-edit "></i>&nbsp;&nbsp;Edit
+                                            </a>
+                                        {/*  */}
                                             
 
                                             <a  onClick={() => this.deleteResearchTopic(p._id)}>
