@@ -32,9 +32,9 @@ const App=()=>{
                   
                   <Route path="/AddSupervisorDetails" element ={<AddSupervisorDetails/>}/>
                   <Route path="/AllSupervisorDetails" element ={<AllSupervisor/>}/>
-                  <Route path="/EditSupervisorDetails/:id" element ={<EditSupervisor/>}/>
+                  <Route path="/EditSupervisorDetails/:_id" element ={<EditSupervisor/>}/>
 
-
+{/*  */}
                   <Route path="/RequestSupervisor" element= {<AddSupervisorRequest/>}/>
                   <Route path="/ViewSupervisorRequest" element= {<ViewSupervisorRequest/>}/>
                   <Route path="/updateSupervisorApproval/:_id" element= {<UpdateSupervisorApproval/>}/>
