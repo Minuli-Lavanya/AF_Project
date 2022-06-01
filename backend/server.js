@@ -37,6 +37,10 @@ app.use("/groupdetail", GroupRegisterRoutes)
 const requestSupervisorRoutes = require("./routes/requestSupervisorRoutes");
 app.use("/requestSupervisor", requestSupervisorRoutes)
 
+// ----------------------------------------------- //
+const userRouter= require("./routes/users");
+app.use("/user", userRouter)
+
 app.listen(PORT, () => {
     console.log(`Server is up and running at port ${PORT}`)
 })
