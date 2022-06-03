@@ -13,12 +13,7 @@ const SupervisorView=()=>{
             })
     }, [])
 
-    
-
-    
-
-
-
+   
     return(
         <div>
             <header>
