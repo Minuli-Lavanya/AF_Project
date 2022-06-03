@@ -40,6 +40,9 @@ app.use("/requestSupervisor", requestSupervisorRoutes)
 const PanelMembersRoutes = require("./routes/PanelMemberRoutes")
 app.use("/panelMembers", PanelMembersRoutes)
 
+const MarkingRoutes = require("./routes/MarkingScheme")
+app.use("/marking", MarkingRoutes)
+
 app.listen(PORT, () => {
     console.log(`Server is up and running at port ${PORT}`)
 })
