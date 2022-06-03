@@ -62,7 +62,8 @@ const GroupRegisterSchema = new Schema({
     },
 
     member1ITnumber : {
-        type : String
+        type : String,
+        required : true
     },
 
     member2ITnumber : {
@@ -77,8 +78,8 @@ const GroupRegisterSchema = new Schema({
 
     member4ITnumber : {
         type : String
-        
     },
+
     
 })
 
