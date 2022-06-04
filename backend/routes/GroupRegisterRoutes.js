@@ -22,6 +22,7 @@ router.route("/add").post((req, res) => {
     const member2ITnumber = req.body.member2ITnumber;
     const member3ITnumber= req.body.member3ITnumber;
     const member4ITnumber = req.body.member4ITnumber;
+    const GroupID = req.body.GroupID;
     
 
     const newGroupDetails = new GroupDetail({
@@ -40,7 +41,8 @@ router.route("/add").post((req, res) => {
         member1ITnumber,
         member2ITnumber,
         member3ITnumber,
-        member4ITnumber
+        member4ITnumber,
+        GroupID
         
     })
 
@@ -83,6 +85,7 @@ router.route("/update/:id").put(async (req,res) => {
         member2ITnumber,
         member3ITnumber,
         member4ITnumber,
+        GroupID
     } = req.body;
 
     const updateGroupDetail = {
@@ -101,7 +104,8 @@ router.route("/update/:id").put(async (req,res) => {
         member1ITnumber,
         member2ITnumber,
         member3ITnumber,
-        member4ITnumber
+        member4ITnumber,
+        GroupID
     }
 
     const update = await GroupDetail.findByIdAndUpdate(userId, updateGroupDetail).then(() => {

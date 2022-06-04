@@ -43,18 +43,15 @@ const GroupRegisterSchema = new Schema({
     },
 
     member1phoneNumber : {
-        type : String,
-        required : true
+        type : String
     },
 
     member2phoneNumber : {
-        type : String,
-        required : true
+        type : String
     },
 
     member3phoneNumber : {
-        type : String,
-        required : true
+        type : String
     },
 
     member4phoneNumber : {
@@ -62,8 +59,7 @@ const GroupRegisterSchema = new Schema({
     },
 
     member1ITnumber : {
-        type : String,
-        required : true
+        type : String
     },
 
     member2ITnumber : {
@@ -77,6 +73,10 @@ const GroupRegisterSchema = new Schema({
     },
 
     member4ITnumber : {
+        type : String
+    },
+
+    GroupID : {
         type : String
     },
 

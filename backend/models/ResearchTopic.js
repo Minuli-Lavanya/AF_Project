@@ -64,12 +64,15 @@ const researchTopicSchema = new Schema({
         required : false
     },
 
-   
-
 })
 
-//mongodb data table name
 const ResearchTopic = mongoose.model("ResearchTopic", researchTopicSchema);
 
-//export the module
 module.exports = ResearchTopic;
+
+
+
+
+
+
+

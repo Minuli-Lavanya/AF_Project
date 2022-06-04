@@ -26,8 +26,6 @@ const supervisorDetailSchema = new Schema({
 
 })
 
-//mongodb data table name
-const SupervisorDetail = mongoose.model("SupervisorDetail", supervisorDetailSchema);
+const Supervisor = mongoose.model("Supervisor", supervisorDetailSchema);
 
-//export the module
-module.exports = SupervisorDetail;
+module.exports = Supervisor;

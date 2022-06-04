@@ -1,18 +1,17 @@
 const router = require("express").Router();
 const { response } = require("express");
-let SupervisorDetail = require("../models/SupervisorDetail");
-
-router.route("/add").post((req, res) => {
+let Supervisor = require("../Models/SupervisorDetail");
 
 
-
+router.route("/add").post((req, res) =>{
+    
     const supervisor_name = req.body.supervisor_name;
     const supervisor_email = req.body.supervisor_email;
-    const supervisor_faculty= req.body.supervisor_faculty;
+    const supervisor_faculty =  req.body.supervisor_faculty;
     const supervisor_research_area = req.body.supervisor_research_area;
-    
+     
 
-    const newSupervisorDetail = new SupervisorDetail({
+    const newSupervisor = new Supervisor ({
         supervisor_name,
         supervisor_email,
         supervisor_faculty,
@@ -20,44 +19,45 @@ router.route("/add").post((req, res) => {
         
     })
 
-    newSupervisorDetail.save().then(() => {
-        res.json("Supervisor Details added")
-    }).catch((err)=>{
+    newSupervisor.save().then(()=> {
+        res.json("Supervisor Details Added")
+    }).catch((err) => {
         console.log(err);
     })
 
 })
 
-router.route("/").get((req,res) => {
+// fetch data
 
-    SupervisorDetail.find().then((supervisorDetail) => {
-        res.json(supervisorDetail)
+router.route("/").get((req, res) => {
+
+    Supervisor.find().then((supervisor)=>{
+        res.json(supervisor)
     
     }).catch((err)=>{
         console.log(err)
     })
+
 })
 
-router.route("/update/:id").put(async (req,res) => {
+//update
+
+router.route("/update/:id").put(async (req, res) => {
 
     let userId = req.params.id;
+    //d structure
+    const { supervisor_name, supervisor_email, supervisor_faculty, supervisor_research_area,} = req.body;
 
-    const {
+    const updateSupervisor = {
         supervisor_name,
         supervisor_email,
         supervisor_faculty,
-        supervisor_research_area,
-    } = req.body;
-
-    const updateSupervisorDetail = {
-        supervisor_name,
-        supervisor_email,
-        supervisor_faculty,
-        supervisor_research_area,
+        supervisor_research_area
     }
 
-    const update = await SupervisorDetail.findByIdAndUpdate(userId, updateSupervisorDetail).then(() => {
-        res.status(200).send({status: "Supervisor details Updated"})
+    const update = await Supervisor.findByIdAndUpdate(userId, updateSupervisor).then(() => {
+
+        res.status(200).send({status: "Supervisor Updated"})
     }).catch((err) => {
         console.log(err);
         res.status(500).send({status: "Error with updating data", error: err.message });
@@ -65,23 +65,25 @@ router.route("/update/:id").put(async (req,res) => {
 
 })
 
+//delete
+
 router.route("/delete/:id").delete(async (req, res) => {
     let userId = req.params.id;
 
-    await SupervisorDetail.findByIdAndDelete(userId).then(() => {
-        res.status(200).send({status: " Deleted "});
+    await Supervisor.findByIdAndDelete(userId).then(() => {
+        res.status(200).send({status: "Supervisor Details Deleted"});
     }).catch((err) => {
         console.log(err.message);
-        res.status(500).send({status: "Error with delete !", error:err.message})
+        res.status(500).send({status: "Error with delete  Supervisor Details!", error:err.message})
     })
 })
 
-//get one's data
+//get one  data
 router.route("/get/:id").get(async (req, res) => {
     let userId = req.params.id;
 
-    const supervisorDetaildata = await SupervisorDetail.findById(userId).then((supervisorDetail) => {
-        res.status(200).send({status: "fetched", supervisorDetail});
+    const supervisordata = await Supervisor.findById(userId).then((supervisor) => {
+        res.status(200).send({status: "Supervisor details fetched", supervisor});
     }).catch((err) => {
         console.log(err.message);
         res.status(500).send({status: "Error with get details!", error:err.message});
@@ -91,5 +93,4 @@ router.route("/get/:id").get(async (req, res) => {
 
 
 
-// export the module
 module.exports = router;
