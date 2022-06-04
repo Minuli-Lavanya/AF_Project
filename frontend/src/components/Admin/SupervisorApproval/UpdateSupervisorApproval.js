@@ -20,12 +20,16 @@ function UpdateSupervisorApproval() {
     GroupLeader: GroupLeader
   };
 
+
+  let handleChange=(e)=>{
+    setsupervisorDetail({...supervisorDetail,[e.target.name]:e.target.value})
+  }
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let res = await axios.put(
         `http://localhost:8070/requestSupervisor/update/${params._id}`,
-        data
+        supervisorDetail
       );
       if (res) {
         console.log(data);
@@ -57,7 +61,7 @@ function UpdateSupervisorApproval() {
       <form className="form" onSubmit={handleSubmit}>
 
         <div className="form-group">
-        <label >Reservation Info _id</label>
+        <label >ID</label>
         <input
         type="text"
         className="form-control"
@@ -69,35 +73,39 @@ function UpdateSupervisorApproval() {
         </div>
 
         <div className="form-group">
-        <label >Room Type</label>
+        <label >Research Topic</label>
         <input
-        value={supervisorDetail.researchTopic}
+        
         type="text"
+        defaultValue={supervisorDetail.researchTopic}
         className="form-control"
         _id="researchTopic"
-        onChange={(e) => setresearchTopic(e.target.value)}
+        name="researchTopic"
+        onChange={(e)=>handleChange(e)}
         required />
         </div>
 
         <div className="form-group">
-        <label >research_area</label>
+        <label >Research area</label>
         <textarea
         className="form-control"
         _id="research_area"
         rows="3"
-        value={supervisorDetail.research_area}
-        onChange={(e) => setresearch_area(e.target.value)}
+        name="research_area"
+        defaultValue={supervisorDetail.research_area}
+        onChange={(e)=>handleChange(e)}
         required></textarea>
         </div>
 
         <div className="form-group">
-        <label >Available Rooms</label>
+        <label >Requestmessage</label>
         <input
         className="form-control"
         _id="Requestmessage"
         rows="3"
-        value={supervisorDetail.Requestmessage}
-        onChange={(e) => setRequestmessage(e.target.value)}
+        name="Requestmessage"
+        defaultValue={supervisorDetail.Requestmessage}
+        onChange={(e)=>handleChange(e)}
         required />
         </div>
 
@@ -107,8 +115,9 @@ function UpdateSupervisorApproval() {
         className="form-control"
         _id="GroupLeader"
         rows="3"
-        placeholder={supervisorDetail.GroupLeader}
-        onChange={(e) => setGroupLeader(e.target.value)}
+        name="GroupLeader"
+        defaultValue={supervisorDetail.GroupLeader}
+        onChange={(e)=>handleChange(e)}
         required />
         </div>
         <br></br>
