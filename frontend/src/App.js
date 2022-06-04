@@ -14,6 +14,14 @@ import ViewSupervisorRequest from "./components/RequestSupervisor/ViewSupervisor
 import UpdateSupervisorApproval from "./components/Admin/SupervisorApproval/UpdateSupervisorApproval";
 import SupervisorView from "./components/Admin/SupervisorApproval/SupervisorView";
 
+import SignUp from "./components/Pages/SignUp";
+import SignIn from "./components/Pages/SignIn";
+import User from "./components/Pages/User";
+import Profile from "./components/Pages/Profile";
+
+import AdminSignIn from "./components/Admin/Admin/AdminSignIn";
+import AdminSignUp from "./components/Admin/Admin/AdminSignUp";
+// import Admin from "./components/Admin/Admin/Admin";
 
 const App=()=>{
   return (
@@ -39,8 +47,13 @@ const App=()=>{
                   <Route path="/ViewSupervisorRequest" element= {<ViewSupervisorRequest/>}/>
                   <Route path="/updateSupervisorApproval/:_id" element= {<UpdateSupervisorApproval/>}/>
                   <Route path="/supervisorView" element= {<SupervisorView/>}/>
-
-       
+                  <Route path="/SignUp" element= {<SignUp/>}/>
+                  <Route path="/SignIn" element= {<SignIn/>}/>
+                  <Route path="/User" element= {<User/>}/>
+                  <Route path="/Profile" element= {<Profile/>}/>
+                  <Route path="/adminsignin" element= {<AdminSignIn/>}/>
+                  <Route path="/adminsignup" element= {<AdminSignUp/>}/>
+                   {/*<Route path="/Admin" element= {<Admin/>}/>*/}
           </Routes>
       </BrowserRouter>
       </div>
