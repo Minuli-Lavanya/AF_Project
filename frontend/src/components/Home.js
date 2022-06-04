@@ -9,11 +9,16 @@ const Home=()=>{
 
             <Link  to="/AddReseacrchTopic"> Add ResearchTopic</Link>
             <Link  to="/AddSupervisorDetails"> AddSupervisorDetails</Link>
-            
-            
 
+            <div>
+            <Link  to="/SignIn">User SignIn</Link>
             
+            </div>
+               <div>
+               <Link  to="/adminsignin"> Admin SignIn</Link>
+               </div>
         </div>
+        
         
     );
 }
